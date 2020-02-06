@@ -76,12 +76,28 @@
         </div> --}}
         <div class="container mt-5">
             <div class="row">
-                <div class="col-md-3">
-                    menu
-                </div>
-                <div class="col-md-9">
-                    @yield('konten')
-                </div>
+                @auth
+                    <div class="col-md-3">
+                        <div class="list-group">
+                            <div class="list-group-item">
+                            <a href="{{route('kategori.index')}}">Kategori
+                            </div>
+                        </a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        @if (session()->has('sukses'))
+                            <div class="alert alert-info">
+                                {{session()->get('sukses')}}
+                            </div>
+                        @endif
+                        @yield('content')
+                    </div>
+                    @else
+                    <div class="col-md-12">
+                        @yield('content')
+                    </div>
+                @endauth
             </div>
         </div>
     </div>

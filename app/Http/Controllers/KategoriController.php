@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Kategori;
+use App\Http\Requests\KategoriRequest;
 
 class KategoriController extends Controller
 {
@@ -13,7 +15,7 @@ class KategoriController extends Controller
      */
     public function index()
     {
-        //
+        return view('kategori.index')->withKategoris(Kategori::all());
     }
 
     /**
@@ -23,7 +25,7 @@ class KategoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('kategori.form');
     }
 
     /**
@@ -32,9 +34,14 @@ class KategoriController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(KategoriRequest $request)
     {
-        //
+        Kategori::create([
+            'name'=>$request->name,
+        ]);
+
+        session()->flash('sukses','Data Berhasil Di Tambahkan');
+        return redirect(route('kategori.index'));
     }
 
     /**
