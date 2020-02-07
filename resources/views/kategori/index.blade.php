@@ -11,6 +11,12 @@
                     @foreach ($kategoris  as $kategori)
                         <div class="list-group-item">
                             {{$kategori->name}}
+                            <a onclick="deleteHandle({{$kategori}})" class="btn btn-danger float-right"> 
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </a>
+                            <a href="{{route('kategori.edit', $kategori->id)}}" class="btn btn-warning float-right mr-1"> 
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                        </a>
                         </div>
                     @endforeach
                 </div>
@@ -21,4 +27,16 @@
         @endif
     </div>
 </div>
+@endsection
+
+@section('script')
+    <script>
+        function deleteHandle(kategori){
+            var { id, name} = kategori
+
+            $('#formDelete').attr('action', `kategori/${id}`)
+            $('#ket').html('kategori'+name)
+            $('#modalDelete').modal('show')
+        }
+    </script>
 @endsection

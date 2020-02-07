@@ -15,6 +15,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -101,5 +102,31 @@
             </div>
         </div>
     </div>
+
+    <div class="modal" id="modalDelete" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+          <form action="" method="POST" id="formDelete">
+              @csrf
+              @method('DELETE')
+            <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">Konformasi Delete</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>Apakah anda yakin menghapus <span id="ket"></span> ?</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                  <button type="submit" class="btn btn-primary">Ok Delete</button>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+
+      @yield('script')
 </body>
 </html>
