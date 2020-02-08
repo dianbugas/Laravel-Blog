@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Beasiswa;
+use App\Http\Requests\BeasiswaRequest;
 
 class BeasiswaController extends Controller
 {
@@ -13,7 +15,7 @@ class BeasiswaController extends Controller
      */
     public function index()
     {
-        //
+        return view('beasiswa.index')->withBeasiswas(Beasiswa::all());
     }
 
     /**
@@ -23,7 +25,7 @@ class BeasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('beasiswa.form');
     }
 
     /**
@@ -32,9 +34,15 @@ class BeasiswaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BeasiswaRequest $request)
     {
-        //
+        Beasiswa::create([
+            'nama' => $request->nama,
+            'keterangan' => $request->keterangan
+
+        ]);
+        session()->flash('sukses', 'Data Berhasil Di Tambahkan');
+        return redirect(route('beasiswa.index'));
     }
 
     /**
@@ -54,9 +62,9 @@ class BeasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Beasiswa $beasiswa)
     {
-        //
+        return view('beasiswa.form')->withBeasiswa($beasiswa);
     }
 
     /**
@@ -66,9 +74,15 @@ class BeasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BeasiswaRequest $request, Beasiswa $beasiswa)
     {
-        //
+        $beasiswa->update([
+            'nama' => $request->nama,
+            'keterangan' => $request->keterangan
+        ]);
+
+        session()->flash('sukses', 'beasiswa berhasil di ubah');
+        return redirect(route('beasiswa.index'));
     }
 
     /**
@@ -77,8 +91,10 @@ class BeasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Beasiswa $beasiswa)
     {
-        //
+        $beasiswa->delete();
+        session()->flash('sukses', 'beasiswa berhasil di hapus');
+        return redirect(route('beasiswa.index'));
     }
 }

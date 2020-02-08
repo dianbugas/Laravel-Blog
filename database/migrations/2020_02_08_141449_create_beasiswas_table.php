@@ -15,6 +15,8 @@ class CreateBeasiswasTable extends Migration
     {
         Schema::create('beasiswas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->String('nama');
+            $table->String('keterangan');
             $table->timestamps();
         });
     }
