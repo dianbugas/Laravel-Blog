@@ -84,6 +84,12 @@
                             <a href="{{route('kategori.index')}}">Kategori
                             </div>
                         </a>
+                            <div class="list-group-item">
+                                <a href="#">Mahasiswa
+                            </div></a>
+                            <div class="list-group-item">
+                                <a href="{{route('prodi.index')}}">Prodi
+                            </div></a>
                         </div>
                     </div>
                     <div class="col-md-9">
