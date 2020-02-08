@@ -50,4 +50,4 @@ class CreateFailedJobsTable extends Migration
 // php artisan db:seed
 
 // membuat create
-// php artisan make:request TambahContactRequest
+// php artisan make:request ContactRequest
