@@ -13,7 +13,7 @@ class BeasiswaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,7 +25,7 @@ class BeasiswaRequest extends FormRequest
     {
         return [
             'nama' => 'required|max:30',
-            'keterangan' => 'required|max"255'
+            'keterangan' => 'required|max:255'
         ];
     }
 }

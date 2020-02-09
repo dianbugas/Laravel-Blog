@@ -6,27 +6,38 @@
         <a href="{{route('beasiswa.create')}}" class="btn btn-primary float-right">Tambah Data</a></h2>
     </div>
         <div class="card-body">
-            @if ($beasiswas->count() > 0)
-                <div class="list-group">
+            <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">No</th>
+                    <th scope="col">Singkatan</th>
+                    <th scope="col">Kepanjangan</th>
+                    <th scope="col">Aksi</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @if ($beasiswas->count() > 0)
                     @foreach ($beasiswas as $beasiswa)
-                        <div class="list-group-item">
-                            {{$beasiswa->nama}}
-                            {{$beasiswa->keterangan}}
-                            <a onclick="deleteHandle({{$beasiswa}})" class="btn btn-danger float-right">
-                                <i class="fa fa-trash-o" aria-hidden="true"></i>
-                            </a>
-                            <a href="{{route('beasiswa.edit', $beasiswa->id)}}" class="btn btn-warning float-right mr-1">
-                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <th scope="row">1</th>
+                    <td>{{$beasiswa->nama}}</td>
+                    <td>{{$beasiswa->keterangan}}</td>
+                    <th>
+                        <a onclick="deleteHandle({{$beasiswa}})" class="btn btn-danger">
+                            <i class="fa fa-trash-o" aria-hidden="true"></i>
                         </a>
-                        </div>
+                        <a href="{{route('beasiswa.edit', $beasiswa->id)}}" class="btn btn-warning mr-1">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                    </th>
                     @endforeach
-                </div>
-            @else
-                <div class="alert alert-info">
-                    Data tidak ditemukan
-                </div>
-        @endif
-    </div>
+                    @else
+                        <div class="alert alert-info">
+                            Data tidak ditemukan
+                        </div>
+                    @endif
+                </tbody>
+            </table>
+        </div>
 </div>
 @endsection
 

@@ -19,6 +19,11 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        th{
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
