@@ -18,17 +18,19 @@
                 <tbody>
                     @if ($beasiswas->count() > 0)
                     @foreach ($beasiswas as $beasiswa)
-                    <th scope="row">1</th>
-                    <td>{{$beasiswa->nama}}</td>
-                    <td>{{$beasiswa->keterangan}}</td>
-                    <th>
-                        <a onclick="deleteHandle({{$beasiswa}})" class="btn btn-danger">
-                            <i class="fa fa-trash-o" aria-hidden="true"></i>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>{{$beasiswa->nama}}</td>
+                        <td>{{$beasiswa->keterangan}}</td>
+                        <th>
+                            <a onclick="deleteHandle({{$beasiswa}})" class="btn btn-danger">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </a>
+                            <a href="{{route('beasiswa.edit', $beasiswa->id)}}" class="btn btn-warning mr-1">
+                            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </a>
-                        <a href="{{route('beasiswa.edit', $beasiswa->id)}}" class="btn btn-warning mr-1">
-                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-                    </a>
-                    </th>
+                        </th>
+                     </tr>
                     @endforeach
                     @else
                         <div class="alert alert-info">

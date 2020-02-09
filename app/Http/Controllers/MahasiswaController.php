@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mahasiswa;
+use App\Http\Requests\MahasiswaRequest;
 
 class MahasiswaController extends Controller
 {
@@ -13,7 +15,7 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        //
+        return view('mahasiswa.index')->withMahasiswas(Mahasiswa::all());
     }
 
     /**
@@ -23,7 +25,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('mahasiswa.form');
     }
 
     /**
@@ -32,9 +34,25 @@ class MahasiswaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MahasiswaRequest $request)
     {
-        //
+        Mahasiswa::create([
+            'nama' => $request->nama,
+            'jk' => $request->jk,
+            'tmp_lahir' => $request->tmp_lahir,
+            'tgl_lahir' => $request->tgl_lahir,
+            'email' => $request->email,
+            'no_hp' => $request->no_hp,
+            'alamat' => $request->alamat,
+            'foto' => $request->foto,
+            'angkatan' => $request->angkatan,
+            'status_kerja' => $request->status_kerja,
+            'tmp_kerja' => $request->tmp_kerja,
+            'beasiswa_id' => $request->beasiswa_id,
+            'prodi_id' => $request->prodi_id
+        ]);
+        session()->flash('sukses', 'Data Berhasil Di Tambahkan');
+        return redirect(route('mahasiswa.index'));
     }
 
     /**
@@ -54,9 +72,9 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Mahasiswa $mahasiswa)
     {
-        //
+        return view('mahasiswa.form')->withMahasiswa($mahasiswa);
     }
 
     /**
@@ -66,9 +84,26 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(MahasiswaRequest $request, Mahasiswa $mahasiswa)
     {
-        //
+        $mahasiswa::update([
+            'nama' => $request->nama,
+            'jk' => $request->jk,
+            'tmp_lahir' => $request->tmp_lahir,
+            'tgl_lahir' => $request->tgl_lahir,
+            'email' => $request->email,
+            'no_hp' => $request->no_hp,
+            'alamat' => $request->alamat,
+            'foto' => $request->foto,
+            'angkatan' => $request->angkatan,
+            'status_kerja' => $request->status_kerja,
+            'tmp_kerja' => $request->tmp_kerja,
+            'beasiswa_id' => $request->beasiswa_id,
+            'prodi_id' => $request->prodi_id
+        ]);
+
+        session()->flash('sukses', 'mahasiswa berhasil di ubah');
+        return redirect(route('mahasiswa.index'));
     }
 
     /**
@@ -77,8 +112,10 @@ class MahasiswaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Mahasiswa $mahasiswa)
     {
-        //
+        $mahasiswa->delete();
+        session()->flash('sukses', 'mahasiswa berhasil di hapus');
+        return redirect(route('mahasiswa.index'));
     }
 }

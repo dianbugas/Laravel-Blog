@@ -87,10 +87,9 @@
                         <div class="list-group">
                             <div class="list-group-item">
                             <a href="{{route('kategori.index')}}">Kategori
-                            </div>
-                        </a>
+                            </div></a>
                             <div class="list-group-item">
-                                <a href="#">Mahasiswa
+                                <a href="{{route('mahasiswa.index')}}">Mahasiswa
                             </div></a>
                             <div class="list-group-item">
                                 <a href="{{route('prodi.index')}}">Prodi

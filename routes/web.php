@@ -21,3 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/kategori', 'KategoriController');
 Route::resource('/prodi', 'ProdiController');
 Route::resource('/beasiswa', 'BeasiswaController');
+Route::resource('/mahasiswa', 'MahasiswaController');
