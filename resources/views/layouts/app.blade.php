@@ -24,6 +24,18 @@
             text-align: center;
         }
     </style>
+
+    <!-- Favicon -->
+   <link href="{{ asset('assets/img/brand/favicon.png') }}" rel="icon" type="{{ asset('assets/image/png') }}">
+   <!-- Fonts -->
+   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+   <!-- Icons -->
+   <link href="{{ asset('assets/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
+   <link href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+   <!-- Argon CSS -->
+   <link type="text/css" href="{{asset('assets/css/argon.css?v=1.1.1')}}" rel="stylesheet">
+   <!-- Docs CSS -->
+   <link type="text/css" href="{{ asset('assets/css/docs.min.css')}}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -143,3 +155,9 @@
       @yield('script')
 </body>
 </html>
+
+
+
+
+
+

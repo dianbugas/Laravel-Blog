@@ -41,7 +41,7 @@
    <header class="header-global">
      <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
        <div class="container">
-         <a class="navbar-brand mr-lg-5" href="./index.html"><img src="{{ asset('assets/img/brand/white.png') }}"></a>
+         <a class="navbar-brand mr-lg-5" href="./index.html"><img src="{{ asset('assets/img/brand/white1.png') }}"></a>
          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
            <span class="navbar-toggler-icon"></span>
          </button>
@@ -65,7 +65,7 @@
              <li class="nav-item dropdown">
                <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
                  <i class="ni ni-ui-04 d-lg-none"></i>
-                 <span class="nav-link-inner--text">Components</span>
+                 <span class="nav-link-inner--text">Pendidikan</span>
                </a>
                <div class="dropdown-menu dropdown-menu-xl">
                  <div class="dropdown-menu-inner">
@@ -92,7 +92,7 @@
                        <i class="ni ni-ui-04"></i>
                      </div>
                      <div class="media-body ml-3">
-                       <h5 class="heading text-warning mb-md-1">Components</h5>
+                       <h5 class="heading text-warning mb-md-1">Pendidikan</h5>
                        <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
                      </div>
                    </a>
@@ -102,13 +102,14 @@
              <li class="nav-item dropdown">
                <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
                  <i class="ni ni-collection d-lg-none"></i>
-                 <span class="nav-link-inner--text">Examples</span>
+                 <span class="nav-link-inner--text">Program</span>
                </a>
                <div class="dropdown-menu">
-                 <a href="./examples/landing.html" class="dropdown-item">Landing</a>
-                 <a href="./examples/profile.html" class="dropdown-item">Profile</a>
-                 <a href="./examples/login.html" class="dropdown-item">Login</a>
-                 <a href="./examples/register.html" class="dropdown-item">Register</a>
+                 <a href="./examples/landing.html" class="dropdown-item">Dakwah</a>
+                 <a href="./examples/landing.html" class="dropdown-item">Ekonomi</a>
+                 <a href="./examples/profile.html" class="dropdown-item">Kesehatan</a>
+                 {{-- <a href="./examples/login.html" class="dropdown-item">Pendidikan</a> --}}
+                 <a href="./examples/register.html" class="dropdown-item">Sosial Manusia</a>
                </div>
              </li>
            </ul>
@@ -133,22 +134,13 @@
              </li>
              <li class="nav-item">
                <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial/argon-design-system" target="_blank" data-toggle="tooltip" title="Star us on Github">
-                 <i class="fa fa-github"></i>
-                 <span class="nav-link-inner--text d-lg-none">Github</span>
+                 <i class="fa fa-youtube"></i>
+                 <span class="nav-link-inner--text d-lg-none">Youtube</span>
                </a>
              </li>
              <li class="nav-item d-none d-lg-block ml-lg-4">
-               <a href="https://www.creative-tim.com/product/argon-design-system-pro?ref=ads-upgrade-pro" target="_blank" class="btn btn-neutral btn-icon">
-                 <span class="btn-inner--icon">
-                   <i class="fa fa-shopping-cart"></i>
-                 </span>
-                 <span class="nav-link-inner--text">Upgrade to PRO</span>
-               </a>
                <a href="https://www.creative-tim.com/product/argon-design-system" target="_blank" class="btn btn-neutral btn-icon">
-                 <span class="btn-inner--icon">
-                   <i class="fa fa-cloud-download mr-2"></i>
-                 </span>
-                 <span class="nav-link-inner--text">Download</span>
+                 <span class="nav-link-inner--text">Masuk</span>
                </a>
              </li>
            </ul>
@@ -177,22 +169,8 @@
            <div class="col px-0">
              <div class="row align-items-center justify-content-center">
                <div class="col-lg-6 text-center">
-                 <img src="{{ asset('assets/img/brand/white.png') }}" style="width: 200px;" class="img-fluid">
-                 <p class="lead text-white">A beautiful Design System for Bootstrap 4. It's Free and Open Source.</p>
-                 <div class="btn-wrapper mt-5">
-                   <a href="https://www.creative-tim.com/product/argon-design-system" class="btn btn-lg btn-white btn-icon mb-3 mb-sm-0">
-                     <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
-                     <span class="btn-inner--text">Download HTML</span>
-                   </a>
-                   <a href="https://github.com/creativetimofficial/argon-design-system" class="btn btn-lg btn-github btn-icon mb-3 mb-sm-0" target="_blank">
-                     <span class="btn-inner--icon"><i class="fa fa-github"></i></span>
-                     <span class="btn-inner--text"><span class="text-warning">Star us</span> on Github</span>
-                   </a>
-                 </div>
-                 <div class="mt-5">
-                   <small class="text-white font-weight-bold mb-0 mr-2">*proudly coded by</small>
-                   <img src="{{ asset('assets/img/brand/creativetim-white-slim.png') }}" style="height: 28px;">
-                 </div>
+                 <img src="{{ asset('assets/img/brand/white.jpg') }}" style="width: 200px; border-radius: 5%" class="img-fluid">
+                 <p class="lead text-white">Menjejak Manfaat</p>
                </div>
              </div>
            </div>
