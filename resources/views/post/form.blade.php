@@ -35,7 +35,8 @@
             <div class="form-group">
                 <label for="name">Cover</label>
                 @error('cover') <span style="color:red">{{$message}}</span>@enderror
-            <input type="file" name="cover" id="cover" class="form-control" value="{{isset($post)? $post->cover : old('cover')}}">
+                <input type="file" name="cover" id="cover" class="form-control" value="{{isset($post)? $post->cover : old('cover')}}">
+                <span>Upload Gambar sebaiknya memiliki rasio 1:1 dan berukuran tidak lebih dari 2MB.</span>
             </div>
             <div class="form-group">
                 <label for="name">Kategori</label>

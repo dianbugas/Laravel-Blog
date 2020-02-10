@@ -12,6 +12,7 @@
                     <th scope="col">No</th>
                     <th scope="col">Cover</th>
                     <th scope="col">Judul</th>
+                    <th scope="col">Kategori</th>
                     <th scope="col">Deskripsi</th>
                     <th scope="col">Tanggal Publis</th>
                     <th scope="col">Aksi</th>
@@ -22,11 +23,13 @@
                     @foreach ($posts as $index=>$post)
                     <tr>
                         <th>{{$index + 1}}</th>
-                        <td><img src="{{asset('storage/'.$post->cover)}}" width="200px">
+                        <td><img src="{{asset('storage/'.$post->cover)}}" width="100px">
                         </td>
                         <td>{{$post->judul}}</td>
+                        {{-- masih error --}}
+                        {{-- <td>{{$post->kategori->name}}</td> --}}
                         <td>{{$post->deskripsi}}</td>
-                        <td>{{$post->tgl_publis}}</td>
+                        <td>{{$post->tgl_publis->format('d M Y') }}</td>
                         <th>
                             <a onclick="deleteHandle({{$post}})" class="btn btn-danger">
                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
