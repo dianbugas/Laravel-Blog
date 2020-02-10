@@ -109,6 +109,9 @@
                             <div class="list-group-item">
                                 <a href="{{route('beasiswa.index')}}">Beasiswa
                             </div></a>
+                            <div class="list-group-item">
+                                <a href="{{route('post.index')}}">Post
+                            </div></a>
                         </div>
                     </div>
                     <div class="col-md-9">

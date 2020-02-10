@@ -51,3 +51,6 @@ class CreateFailedJobsTable extends Migration
 
 // membuat create
 // php artisan make:request ContactRequest
+
+//untuk link dari storege ke public karena folder storage tdk boleh di akses sembarangan untuk image(file) dan edit file .env
+// php artisan storage:link
