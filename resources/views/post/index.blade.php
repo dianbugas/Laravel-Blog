@@ -27,7 +27,7 @@
                         </td>
                         <td>{{$post->judul}}</td>
                         {{-- masih error --}}
-                        {{-- <td>{{$post->kategori->name}}</td> --}}
+                        <td>{{$post->kategori->name}}</td>
                         <td>{{$post->deskripsi}}</td>
                         <td>{{$post->tgl_publis->format('d M Y') }}</td>
                         <th>
