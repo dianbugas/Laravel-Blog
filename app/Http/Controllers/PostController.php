@@ -37,6 +37,7 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
+        //buat variabel untuk upload foto
         $cover = $request->cover->store('img');
 
         Post::create([

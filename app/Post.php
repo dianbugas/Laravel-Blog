@@ -9,6 +9,7 @@ class Post extends Model
 {
     protected $guarded = [];
 
+    //membuat tanggal bulan dan tahun indonesia
     protected $dates = [
         'tgl_publis',
         'create_at',

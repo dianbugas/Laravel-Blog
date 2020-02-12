@@ -22,22 +22,26 @@
                 @error('judul') <span style="color:red">{{$message}}</span>@enderror
             <input type="text" name="judul" id="judul" class="form-control" value="{{isset($post)? $post->judul : old('judul')}}">
             </div>
+
             <div class="form-group">
                 <label for="name">Deskripsi</label>
                 @error('deskripsi') <span style="color:red">{{$message}}</span>@enderror
             <input type="text" name="deskripsi" id="deskripsi" class="form-control" value="{{isset($post)? $post->deskripsi : old('deskripsi')}}">
             </div>
+
             <div class="form-group">
                 <label for="name">Konten</label>
                 @error('konten') <span style="color:red">{{$message}}</span>@enderror
             <textarea name="konten" id="conten" class="form-control">{{old('judul')}}</textarea>
             </div>
+
             <div class="form-group">
                 <label for="name">Cover</label>
                 @error('cover') <span style="color:red">{{$message}}</span>@enderror
                 <input type="file" name="cover" id="cover" class="form-control" value="{{isset($post)? $post->cover : old('cover')}}">
                 <span>Upload Gambar sebaiknya memiliki rasio 1:1 dan berukuran tidak lebih dari 2MB.</span>
             </div>
+
             <div class="form-group">
                 <label for="name">Kategori</label>
                 @error('kategori_id') <span style="color:red">{{$message}}</span>@enderror
@@ -52,6 +56,7 @@
                     @endforeach
                 </select>
             </div>
+
             <div class="form-group">
                 <label for="name">Tanggal Publis</label>
                 @error('tgl_publis') <span style="color:red">{{$message}}</span>@enderror
@@ -60,6 +65,7 @@
             <div class="form-group">
                 <input type="submit" value="{{isset($post)? 'Ubah' : 'Simpan'}}" class="btn btn-primary">
             </div>
+
         </form>
         </div>
     </div>

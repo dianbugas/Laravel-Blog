@@ -54,3 +54,11 @@ class CreateFailedJobsTable extends Migration
 
 //untuk link dari storege ke public karena folder storage tdk boleh di akses sembarangan untuk image(file) dan edit file .env
 // php artisan storage:link
+
+
+// untuk refresh database
+//php artisan migrate:refresh
+
+//untuk melihat database jadi tidak perlu liat dari phpmysqmin dan langsng bisa liat errornya dimana
+//php artisan tinker
+//App\Kategori::all()  ->perintah untuk liat database menggnakan query
