@@ -139,7 +139,7 @@
                </a>
              </li>
              <li class="nav-item d-none d-lg-block ml-lg-4">
-              @if (Route::has('login'))
+              {{-- @if (Route::has('login'))
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                         @else
@@ -152,7 +152,35 @@
                             </a>
                         @endif
                     @endauth
-                    @endif
+                    @endif --}}
+
+                    @if (Route::has('login'))
+                <div class="top-right links">
+                    @auth
+                        <a href="{{ url('/home') }}">Home</a>
+                    @else
+                        <a href="{{ route('login') }}" class="btn btn-neutral btn-icon">
+                            <span class="nav-link-inner--text">Masuk</span>
+                        </a>
+
+                        @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="btn btn-danger btn-icon">
+                                <span class="nav-link-inner--text">Daftar</span>
+                            </a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+
+            {{-- <div class="content">
+                <h1>Bismillah</h1>
+                <ul>
+                <li><a href="{{ route('tentangsaya') }}">About</a></li>
+                <li><a href="{{ route('contacts') }}">Contacts</a></li>
+                    <li><a href="/galeri">Galeri</a></li>
+                    <li>Galeri</li>
+                </ul>
+            </div> --}}
              </li>
            </ul>
          </div>

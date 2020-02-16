@@ -1,15 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Users</div>
-
-                <div class="card-body">
-                    <table class="table">
-                        <thead class="thead-dark">
+<div class="card">
+    <div class="card-header">
+        <h2>Users
+        <a href="#" class="btn btn-primary float-right">Tambah Data</a></h2>
+    </div>
+        <div class="card-body">
+            <table class="table">
+                <thead class="thead-dark">
                           <tr>
                             <th scope="col">#</th>
                             <th scope="col">Name</th>
@@ -19,6 +18,7 @@
                           </tr>
                         </thead>
                         <tbody>
+                            @if ($users->count() > 0)
                             @foreach ($users as $user)
                           <tr>
                           <th scope="row">{{$user->id}}</th>
@@ -38,12 +38,26 @@
                             </form>
                             </td>
                           </tr>
-                        @endforeach
-                        </tbody>
-                      </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+                          @endforeach
+                          @else
+                              <div class="alert alert-info">
+                                  Data tidak ditemukan
+                              </div>
+                          @endif
+                      </tbody>
+                  </table>
+              </div>
+      </div>
+      @endsection
+
+      @section('script')
+          <script>
+              function deleteHandle(user){
+                  var { id, nama} = user
+
+                  $('#formDelete').attr('action', `user/${id}`)
+                  $('#ket').html('user'+nama)
+                  $('#modalDelete').modal('show')
+              }
+          </script>
+      @endsection
