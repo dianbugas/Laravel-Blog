@@ -15,27 +15,9 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-        th{
-            text-align: center;
-        }
-    </style>
-
-    <!-- Favicon -->
-   <link href="{{ asset('assets/img/brand/favicon.png') }}" rel="icon" type="{{ asset('assets/image/png') }}">
-   <!-- Fonts -->
-   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-   <!-- Icons -->
-   <link href="{{ asset('assets/vendor/nucleo/css/nucleo.css') }}" rel="stylesheet">
-   <link href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
-   <!-- Argon CSS -->
-   <link type="text/css" href="{{asset('assets/css/argon.css?v=1.1.1')}}" rel="stylesheet">
-   <!-- Docs CSS -->
-   <link type="text/css" href="{{ asset('assets/css/docs.min.css')}}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -78,7 +60,10 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
+                                    @can('manage-users')
+                                    <a href="{{route('admin.users.index')}}" class="dropdown-item">
+                                    User Management</a>
+                                    @endcan
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -89,78 +74,13 @@
                 </div>
             </div>
         </nav>
-        {{-- <div class="bg-danger">
-            @yield('header')
-        </div> --}}
-        <div class="container mt-5">
-            <div class="row">
-                @auth
-                    <div class="col-md-3">
-                        <div class="list-group">
-                            <div class="list-group-item">
-                            <a href="{{route('kategori.index')}}">Kategori
-                            </div></a>
-                            <div class="list-group-item">
-                                <a href="{{route('mahasiswa.index')}}">Mahasiswa
-                            </div></a>
-                            <div class="list-group-item">
-                                <a href="{{route('prodi.index')}}">Prodi
-                            </div></a>
-                            <div class="list-group-item">
-                                <a href="{{route('beasiswa.index')}}">Beasiswa
-                            </div></a>
-                            <div class="list-group-item">
-                                <a href="{{route('post.index')}}">Post
-                            </div></a>
-                        </div>
-                    </div>
-                    <div class="col-md-9">
-                        @if (session()->has('sukses'))
-                            <div class="alert alert-info">
-                                {{session()->get('sukses')}}
-                            </div>
-                        @endif
-                        @yield('content')
-                    </div>
-                    @else
-                    <div class="col-md-12">
-                        @yield('content')
-                    </div>
-                @endauth
+
+        <main class="py-4">
+            <div class="container">
+                @yield('partials.alerts')
+                @yield('content')
             </div>
-        </div>
+        </main>
     </div>
-
-    <div class="modal" id="modalDelete" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <form action="" method="POST" id="formDelete">
-              @csrf
-              @method('DELETE')
-            <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title">Konformasi Delete</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>Apakah anda yakin menghapus <span id="ket"></span> ?</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                  <button type="submit" class="btn btn-primary">Ok Delete</button>
-                </div>
-              </div>
-          </form>
-        </div>
-      </div>
-
-      @yield('script')
 </body>
 </html>
-
-
-
-
-
-
