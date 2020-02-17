@@ -22,8 +22,14 @@
                 <input type="text" name="nama" id="nama" class="form-control" value="{{isset($mahasiswa)? $mahasiswa->nama : old('nama')}}">
             </div>
             <div class="form-group">
-                <label for="name">Jenis Kelamin</label>
-                <input type="text" name="jk" id="jk" class="form-control" value="{{isset($mahasiswa)? $mahasiswa->jk : old('jk')}}">
+                <label class="radio inline">
+                    <input type="radio" class="jk" name="jk" id="jk" value="1" checked value="{{isset($mahasiswa)? $mahasiswa->jk : old('jk')}}">
+                    <span>Laki - Laki &nbsp; &nbsp; &nbsp;</span>
+                </label>
+                <label class="radio inline">
+                    <input type="radio" class="jk" name="jk" id="jk" value="0" value="{{isset($mahasiswa)? $mahasiswa->jk : old('jk')}}">
+                    <span>Perempuan</span>
+                </label>
             </div>
             <div class="form-group">
                 <label for="name">Tempat Lahir</label>
@@ -31,7 +37,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Tanggal Lahir</label>
-                <input type="text" name="tgl_lahir" id="tgl_lahir" class="form-control" value="{{isset($mahasiswa)? $mahasiswa->tgl_lahir : old('tgl_lahir')}}">
+                <input type="date" name="tgl_lahir" id="tgl_lahir" class="form-control" value="{{isset($mahasiswa)? $mahasiswa->tgl_lahir : old('tgl_lahir')}}">
             </div>
             <div class="form-group">
                 <label for="name">Email</label>
@@ -47,7 +53,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Foto</label>
-                <input type="text" name="foto" id="foto" class="form-control" value="{{isset($mahasiswa)? $mahasiswa->foto : old('foto')}}">
+                <input type="file" name="foto" id="foto" class="form-control" value="{{isset($mahasiswa)? $mahasiswa->foto : old('foto')}}">
             </div>
             <div class="form-group">
                 <label for="name">Angkatan</label>
