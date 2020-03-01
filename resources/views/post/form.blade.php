@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label for="name">Konten</label>
                 @error('konten') <span style="color:red">{{$message}}</span>@enderror
-            <textarea name="konten" id="conten" class="form-control">{{old('judul')}}</textarea>
+            <textarea name="konten" id="conten" class="form-control konten">{{old('judul')}}</textarea>
             </div>
 
             <div class="form-group">
@@ -70,4 +70,14 @@
         </div>
     </div>
 
+@endsection
+
+@section('script')
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.2.0/tinymce.min.js"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea.konten',
+            hight:350
+        })
+    </script>
 @endsection
