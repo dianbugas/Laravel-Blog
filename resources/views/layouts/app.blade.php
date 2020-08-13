@@ -78,7 +78,10 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-
+                                    @can('manage-users')
+                                    <a href="{{route('admin.users.index')}}" class="dropdown-item">
+                                    User Management</a>
+                                    @endcan
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                         @csrf
                                     </form>
@@ -95,7 +98,7 @@
         <div class="container mt-5">
             <div class="row">
                 @auth
-                    <div class="col-md-3">
+                    <div class="col-md-2">
                         <div class="list-group">
                             <div class="list-group-item">
                             <a href="{{route('kategori.index')}}">Kategori
@@ -112,9 +115,12 @@
                             <div class="list-group-item">
                                 <a href="{{route('post.index')}}">Post
                             </div></a>
+                            <div class="list-group-item">
+                                <a href="{{route('admin.users.index')}}">Users
+                            </div></a>
                         </div>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-10">
                         @if (session()->has('sukses'))
                             <div class="alert alert-info">
                                 {{session()->get('sukses')}}
@@ -150,12 +156,18 @@
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
                   <button type="submit" class="btn btn-primary">Ok Delete</button>
                 </div>
-              </div>
+            </div>
           </form>
         </div>
-      </div>
+    </div>
 
-      @yield('script')
+      {{-- <main class="py-4">
+          <div class="container"> --}}
+              @yield('script')
+              @yield('partials.alerts')
+            {{-- //@yield('content') --}}
+        {{-- </div>
+    </main> --}}
 </body>
 </html>
 
