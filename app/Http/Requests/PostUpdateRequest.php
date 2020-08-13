@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class KategoriRequest extends FormRequest
+class PostUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class KategoriRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,7 +24,10 @@ class KategoriRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|max:30'
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'konten' => 'required',
+            'kategori_id' => 'required',
         ];
     }
 }

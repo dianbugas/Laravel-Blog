@@ -9,7 +9,7 @@
                 @else
                     Tambah
                 @endif
-                    Post</h2>
+                    </h2>
         </div>
         <div class="card-body">
         <form action="{{isset($post)? route('post.update', $post->id) : route('post.store')}}" method="POST" enctype="multipart/form-data">
@@ -32,13 +32,14 @@
             <div class="form-group">
                 <label for="name">Konten</label>
                 @error('konten') <span style="color:red">{{$message}}</span>@enderror
-            <textarea name="konten" id="conten" class="form-control konten">{{old('judul')}}</textarea>
+            <textarea name="konten" id="conten" class="form-control konten">{{ isset($post) ? $post->konten : old('judul')}}</textarea>
             </div>
 
             <div class="form-group">
-                <label for="name">Cover</label>
+                <label for="name">Cover</label><br>
                 @error('cover') <span style="color:red">{{$message}}</span>@enderror
-                <input type="file" name="cover" id="cover" class="form-control" value="{{isset($post)? $post->cover : old('cover')}}">
+                <img src="{{ asset('storage/'.$post->cover) }}" width="200px">
+                <input type="file" name="cover" id="cover" class="form-control" value="{{ old('cover') }}">
                 <span>Upload Gambar sebaiknya memiliki rasio 1:1 dan berukuran tidak lebih dari 2MB.</span>
             </div>
 
@@ -48,10 +49,15 @@
                 <select name="kategori_id" id="kategori_id" class="form-control">
                     @foreach ($kategoris as $kategori)
                     <option value="{{$kategori->id}}"
+                        @if (isset($post))
+                            @if ($kategori->id==$post->kategori_id)
+                                selected
+                            @endif
+                        @else
                         @if ($kategori->id==old('$kategori_id'))
-                            selected
+                                selected
+                            @endif
                         @endif
-
                         >{{$kategori->name}}</option>
                     @endforeach
                 </select>
@@ -60,7 +66,7 @@
             <div class="form-group">
                 <label for="name">Tanggal Publis</label>
                 @error('tgl_publis') <span style="color:red">{{$message}}</span>@enderror
-                <input type="date" name="tgl_publis" id="tgl_publis" class="form-control" value="{{isset($post)? $post->tgl_publis : old('tgl_publis')}}">
+                <input type="date" name="tgl_publis" id="tgl_publis" class="form-control" value="{{isset($post) ? $post->tgl_publis->format ('Y-m-d') : old('tgl_publis')}}">
             </div>
             <div class="form-group">
                 <input type="submit" value="{{isset($post)? 'Ubah' : 'Simpan'}}" class="btn btn-primary">

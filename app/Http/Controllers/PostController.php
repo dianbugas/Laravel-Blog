@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\Kategori;
 use App\Http\Requests\PostRequest;
+use App\Http\Requests\PostUpdateRequest;
 
 class PostController extends Controller
 {
@@ -70,9 +71,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('post.form')
+        ->withKategoris(Kategori::all())
+        ->withPost($post);
     }
 
     /**
@@ -82,9 +85,19 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostUpdateRequest $request, Post $post)
     {
-        //
+        $data=$request->only(['judul','deskripsi','konten','kategori_id']);
+        if($request->hasFile('cover')){
+            $cover=$request->cover->store('img');
+            $post->hapusCover();
+
+            $data['cover']=$cover;
+        }
+
+        $post->update($data);
+        session()->flash('sukses','Post Berhasil diubah');
+        return redirect(route('post.index'));
     }
 
     /**
